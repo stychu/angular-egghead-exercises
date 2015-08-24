@@ -1,10 +1,11 @@
 #Exercise 6: Angular ng-repeat and filtering data
 
 ##Summary
-In this application, you are supposed to create `searchStudent` filter allows user to search the list of students by filtering specified field.
+In this application, you are supposed to create `searchStudent` filter allowing user to search through the list of students by filtering the specified field.
 
 ##Goals
-Your task is to make the upper input field should search through all categories. Moreover, you should be able to filter by multiple fields in the same time.
+Your task is to make the `search` input field search through all categories. Each input field is responsible for its own column. Furthermore, you should be able
+ to filter by using multiple fields at the same time.
 
  * write `Warner` in `First Name` field
 
@@ -12,7 +13,7 @@ Your task is to make the upper input field should search through all categories.
 |--------|--------|--------|--------|--------|
 | Warner  |Bridges| 18|warner.bridges@undefined.biz|+1 (914) 451-3055|
 
- * write `1*` in `Age` field
+ * write `1` in `Age` field
 
 | firstName | lastName |age |email|phone|
 |--------|--------|--------|--------|--------|
