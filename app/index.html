@@ -13,14 +13,14 @@
     <div ng-init="enter.text='I update both inputs'; text='I update only one input'"></div>
     <div class="row">
         <div class="col-md-4" ng-controller="LeftCtrl">
-            <label> <input type="text" id="left" class="form-control"> </label>
+            <label> <input type="text" id="left" class="form-control" ng-model="enter.text"> </label>
 
-            <h3 class="well-sm bg-warning">{{text|| "LEFT"}}</h3>
+            <h3 class="well-sm bg-warning">{{enter.text|| "LEFT"}}</h3>
         </div>
         <div class="col-md-offset-4 col-md-4" ng-controller="RightCtrl">
-            <label> <input type="text" id="right" class="form-control"> </label>
+            <label> <input type="text" id="right" class="form-control" ng-model="enter.text"> </label>
 
-            <h3 class="well-sm bg-success">{{text || "RIGHT"}}</h3>
+            <h3 class="well-sm bg-success">{{enter.text || "RIGHT"}}</h3>
         </div>
     </div>
 </div>
