@@ -26,22 +26,20 @@
         <tbody>
         <tr>
             <td>{{data.citation}}</td>
-            <td></td>
+            <td>{{data.citation | quote}}</td>
         </tr>
         <tr>
             <td>{{data.title}}</td>
-            <td></td>
+            <td>{{data.title | withoutH}}</td>
         </tr>
         <tr>
             <td>{{data.someText}}</td>
-            <td></td>
+            <td>{{data.someText | firstLetterUp}}</td>
         </tr>
         </tbody>
     </table>
     <div class="active">
-        <label class="label label-default">and I repeat it in capitals </label>
-
-        <h3>Input</h3>
+        <h3>{{data.tellMe | uppercase}}</h3>
     </div>
 </div>
 
