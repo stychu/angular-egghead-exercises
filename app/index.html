@@ -15,15 +15,15 @@
     <div class="well col-md-4">
         <div>
             <label>First place </label>
-            <input id="first" type="text" class="form-control" placeholder="info">
+            <input id="first" type="text" class="form-control" placeholder="info" ng-model="first">
         </div>
         <div>
             <label>Second place</label>
-            <input id="second" type="text" class="form-control" placeholder="success">
+            <input id="second" type="text" class="form-control" placeholder="success" ng-model="second">
         </div>
         <div>
             <label>Third place</label>
-            <input id="third" type="text" class="form-control" placeholder="danger">
+            <input id="third" type="text" class="form-control" placeholder="danger" ng-model="third">
         </div>
     </div>
     <div class="col-md-8">
@@ -36,17 +36,17 @@
             </tr>
             </thead>
             <tbody>
-            <tr id="firstRecord">
+            <tr id="firstRecord" class="{{first}}">
                 <td>1</td>
                 <td>Bryan Adams</td>
                 <td>(Everything I Do) I Do It for You</td>
             </tr>
-            <tr id="secondRecord">
+            <tr id="secondRecord" class="{{second}}">
                 <td>2</td>
                 <td>Color Me Badd</td>
                 <td>I Wanna Sex You Up</td>
             </tr>
-            <tr id="thirdRecord">
+            <tr id="thirdRecord" class="{{third}}">
                 <td>3</td>
                 <td>C+C Music Factory</td>
                 <td>Gonna Make You Sweat (Everybody Dance Now)</td>
