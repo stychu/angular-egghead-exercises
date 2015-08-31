@@ -7,33 +7,34 @@
 
 <body ng-app="app">
 <!--inside div below add controller-->
-<div class="container">
+<div class="container" ng-controller="FruitCtrl as fruit">
     <div class="page-header text-center">
-        <h1>I'm "<!--name-->"
+        <h1>I'm "{{fruit.name}}"
             <small>please buy me!</small>
         </h1>
     </div>
     <div class="col-md-6 col-md-offset-3">
         <div class="form-group">
             <label for="seller">Seller </label>
-            <input type="text" id="seller" class="form-control">
+            <input type="text" id="seller" class="form-control" ng-model="fruit.seller">
         </div>
         <div class="form-group">
             <label for="name">Name </label>
-            <input type="text" id="name" class="form-control">
+            <input type="text" id="name" class="form-control" ng-model="fruit.name">
         </div>
         <div class="form-group">
             <label for="count">Count</label>
-            <input type="number" id="count" class="form-control">
+            <input type="number" id="count" class="form-control" ng-model="fruit.count">
         </div>
         <div class="well">
-            <h3 id="welcomeSeller">Good morning "<!--seller-->"!</h3>
+            <h3 id="welcomeSeller">Good morning {{fruit.seller}}!</h3>
 
-            <p id="order"> I want to buy one "<!--name-->" x "<!--count--> times"</p>
+            <p id="order"> I want to buy one {{fruit.name}} x {{fruit.count}} times</p>
         </div>
     </div>
 </div>
 <script src="bower_components/angular/angular.js"></script>
 <!--here add script-->
+<script src="FruitCtrl.js"></script>
 </body>
 </html>
