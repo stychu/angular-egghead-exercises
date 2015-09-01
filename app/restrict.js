@@ -6,16 +6,46 @@ app.controller('AppCtrl', ['$scope', function ($scope)
 {
     $scope.description = {
         element: {
-            name: 'restrict E',
-            call: '<this element is using restrict E directive>'
+            name: 'E',
+            call: 'this directive use restrict E'
         },
         attribute: {
-            name: 'restrict A',
-            call: '<this element is using restrict A directive>'
+            name: 'A',
+            call: 'this directive use restrict A'
         },
         class: {
-            name: 'restrict C',
-            call: '<this element is using restrict C directive>'
+            name: 'C',
+            call: 'this directive use restrict C'
         }
     };
 }]);
+
+app.directive('restrictE', function () {
+    return {
+        restrict: 'E',
+        template: '{{description.element.name}}: {{description.element.call}}'
+    }
+});
+
+app.directive('restrictA', function () {
+    return {
+        restrict: 'A',
+        template: '{{description.attribute.name}}: {{description.attribute.call}}'
+    }
+});
+
+app.directive('restrictC', function () {
+    return {
+        restrict: 'C',
+        template: '{{description.class.name}}: {{description.class.call}}'
+    }
+});
+
+app.directive('restrictM', function () {
+    return {
+        restrict: 'M',
+        link: function () {
+            alert("Restrict M: working...")
+        }
+    }
+});
