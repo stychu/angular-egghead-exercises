@@ -34,6 +34,7 @@
             },
             getCurrentConditions: function ()
             {
+
                 return currentConditions;
             }
         };

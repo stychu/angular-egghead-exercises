@@ -22,7 +22,7 @@
                             ng-options="name for name in availableConditions"></select>
                 </label>
 
-                <div id="updateButton" class="btn btn-default col-md-7" ng-click="addCondition(currentCondition)">
+                <div id="updateButton" class="btn btn-default col-md-7" ng-click="addCondition(currentCondition)" >
                     Update
                 </div>
                 <div id="clearButton" class="btn btn-info col-md-offset-1 col-md-4" ng-click="clearConditions()">Clear
@@ -41,19 +41,21 @@
         </div>
     </div>
 
-
     <div class="col-md-offset-1 col-md-7 text-center panel-default" ng-controller="shipCtrl">
         <div class="text-center panel-default row">
             <h2 class="panel-heading text-center">Port</h2>
 
             <div class="row">
                 <div class="col-md-offset-1 col-md-10">
-                    <!--here you are supposed to add correct directives...-->
+                    <ship-sender custom-check="checkMyBoat(boat, conditions)" conditions="{{weatherConditions.getCurrentConditions()}}"></ship-sender>
+                    <ship-sender custom-check="checkMyBoat(boat, conditions)" conditions="{{weatherConditions.getCurrentConditions()}}"></ship-sender>
+                    <ship-sender custom-check="checkMyBoat(boat, conditions)" conditions="{{weatherConditions.getCurrentConditions()}}"></ship-sender>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="docks.js"></script>
