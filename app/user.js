@@ -29,4 +29,9 @@ app.factory('Users', function ()
 app.controller('UserCtrl', function ($scope, Users)
 {
     $scope.users = Users;
+
+    $scope.reverseSort = function(choice) {
+        $scope.reverse = ($scope.choice === choice) ? !$scope.reverse : false;
+        $scope.choice = choice;
+    };
 });

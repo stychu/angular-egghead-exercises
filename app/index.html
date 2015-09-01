@@ -30,14 +30,14 @@
         <table id="users" class="table table-hover table-bordered">
             <thead>
             <tr>
-                <th class="text-center"><a href="" ng-click="choice = 'id'">Id</a></th>
-                <th class="text-center"><a href="" ng-click="choice = 'username'">UserName</a></th>
-                <th class="text-center"><a href="" ng-click="choice = 'fullName'">Full Name</a></th>
-                <th class="text-center"><a href="" ng-click="choice = 'gender'">Gender</a></th>
+                <th class="text-center"><a href="" ng-click="reverseSort('id')">Id</a></th>
+                <th class="text-center"><a href="" ng-click="reverseSort('username')">UserName</a></th>
+                <th class="text-center"><a href="" ng-click="reverseSort('fullName')">Full Name</a></th>
+                <th class="text-center"><a href="" ng-click="reverseSort('gender')">Gender</a></th>
             </tr>
             </thead>
             <tbody>
-            <tr class="text-center" ng-repeat="user in users.list | filter: searchUser">
+            <tr class="text-center" ng-repeat="user in users.list | filter: searchUser | limitTo: (limit || 15) | orderBy:choice:reverse">
                 <td>{{user.id}}</td>
                 <td>{{user.username}}</td>
                 <td>{{user.fullName}}</td>
