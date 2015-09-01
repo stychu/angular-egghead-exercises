@@ -30,6 +30,7 @@ app.controller('UserCtrl', function ($scope, Users)
 {
     $scope.users = Users;
 
+    $scope.limit = 15;
     $scope.reverseSort = function(choice) {
         $scope.reverse = ($scope.choice === choice) ? !$scope.reverse : false;
         $scope.choice = choice;

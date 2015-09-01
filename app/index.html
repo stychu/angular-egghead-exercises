@@ -37,7 +37,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr class="text-center" ng-repeat="user in users.list | filter: searchUser | limitTo: (limit || 15) | orderBy:choice:reverse">
+            <tr class="text-center" ng-repeat="user in users.list | filter: searchUser |  orderBy:choice:reverse | limitTo: limit ">
                 <td>{{user.id}}</td>
                 <td>{{user.username}}</td>
                 <td>{{user.fullName}}</td>
