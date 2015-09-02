@@ -5,7 +5,7 @@ app.directive('alarm', function () {
     return {
         restrict: 'A',
         scope: {},
-        controller: function ($scope) {
+        controller: function () {
             this.addRed = function () {
                 alert('Red alarm!');
             };
@@ -22,6 +22,7 @@ app.directive('alarm', function () {
 //<!--add red directive-->
 app.directive('red', function () {
     return {
+        restrict: 'A',
         require: 'alarm',
         link: function (scope, element, attrs, alarmCtrl) {
             element.bind('click', function () {
@@ -34,6 +35,7 @@ app.directive('red', function () {
 //<!--add yellow directive-->
 app.directive('yellow', function () {
     return {
+        restrict: 'A',
         require: 'alarm',
         link: function (scope, element, attrs, alarmCtrl) {
             element.bind('dblclick', function () {
@@ -45,6 +47,7 @@ app.directive('yellow', function () {
 //<!--add green directive-->
 app.directive('green', function () {
     return {
+        restrict: 'A',
         require: 'alarm',
         link: function (scope, element, attrs, alarmCtrl) {
             element.bind('mouseenter', function () {
