@@ -8,7 +8,7 @@ app.directive('url', function ()
         scope: {
             title: '@', data: '@'
         },
-        template: '<div class="container"><button id="button" ng-click="content()" class="btn btn-info" ng-if="isTitleVisible(title)">{{title}}</button><div ng-if="isContentVisible"><h3 ng-if="\'secret\'!==title">The data is: {{data}}</h3><h3 ng-if="\'secret\'===title" class="text-success">Good, work you display this secret</h3> </div></div>',
+        templateUrl: 'urlTemplate.html',
         link: function (scope)
         {
             scope.isTitleVisible = function (value)
