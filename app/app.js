@@ -2,9 +2,16 @@
 {
     'use strict';
 
-    var app = angular.module('app', []);
+    var app = angular.module('app', ['ngRoute']);
 
     //add routing
+    app.config(function ($routeProvider) {
+        $routeProvider.when('/',
+            {
+                templateUrl: 'home.html',
+                controller: 'RouteCtrl'
+            })
+    });
 
     app.controller('RouteCtrl', function ($scope)
     {

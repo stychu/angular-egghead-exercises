@@ -9,12 +9,13 @@
 <div class="container">
     <div class="page-header text-left"><h1>Route page</h1></div>
     <div>
-        <!--here add directive-->
+        <ng-view></ng-view>
         <h2 class="text-center text-danger" ng-if="!condition">This is NOT correct html.</h2>
     </div>
 </div>
 
 <script src="bower_components/angular/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
