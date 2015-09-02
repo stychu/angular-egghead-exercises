@@ -19,7 +19,7 @@
 
         <label for="forWhat" class="label label-default">For what</label>
         <input type="text" class="form-control" id="forWhat" ng-model="forWhat" placeholder="For poor pets">
-        <money>
+        <money how-many="proposal" for-what="{{forWhat}}">
             <h3 ng-show="name">I'm {{name}}</h3>
 
             <p id="proposal">I want to devote: {{proposal | currency}}</p>

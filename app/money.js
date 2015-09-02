@@ -7,7 +7,7 @@
     {
         return {
             restrict: 'E',
-
+            transclude: true,
             scope: {
                 forWhat: '@', howMany: '='
             }, templateUrl: 'moneyTemplate.html', link: function (scope)
@@ -16,6 +16,9 @@
                 scope.howMany = scope.proposals[0];
                 scope.takeMyMoney = 'Shut up and take my money!';
                 scope.isContentVisible = false;
+                scope.toggleContent = function () {
+                    scope.isContentVisible = !scope.isContentVisible;
+                }
             }
         };
     });

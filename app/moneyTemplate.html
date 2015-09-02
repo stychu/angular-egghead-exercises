@@ -2,7 +2,7 @@
 
 <select ng-model="howMany" id="devote" ng-options="proposal for proposal in proposals" class="form-control form-group"></select>
 <div class="text-center">
-    <button id="toggle" class="btn btn-default">{{forWhat || "For poor pets"}}</button>
-    <!--here display content from index.html-->
-    <strong id="message" ng-if="isContentVisible"><!--here display message--> </strong>
+    <button id="toggle" class="btn btn-default" ng-click="toggleContent()">{{forWhat || "For poor pets"}}</button>
+    <div ng-transclude></div>
+    <strong id="message" ng-if="isContentVisible">{{takeMyMoney}}<!--here display message--> </strong>
 </div>
