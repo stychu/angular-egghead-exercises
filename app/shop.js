@@ -31,7 +31,7 @@ app.directive('orderComponent', function ()
         '<select class="form-control form-group" ng-init="productt = products[0]" ng-model="productt" ng-options="item.name for item in products"><!--select element--></select>' +
         '<div id="buyButton" class="btn btn-success" ng-click="buy({product: productt.name})"><!--the bottom div-->Buy!</div></div></div>';
     return {
-        restriction: 'E',
+        restrict: 'E',
         scope: {
             buy: "&",
             products: "="
