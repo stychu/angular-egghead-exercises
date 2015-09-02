@@ -14,37 +14,37 @@
     </div>
     <div class="text-center">
         <!-- add SumCtrl -->
-        <div class="col-md-6">
+        <div class="col-md-6" ng-controller="SumCtrl">
             <div class="form-group col-md-6">
                 <label for="firstNumberSum" class="label label-default col-md-12">a</label>
-                <input id="firstNumberSum" type="number" class="form-control" ng-model="firstNumberSum">
+                <input id="firstNumberSum" type="number" class="form-control" ng-model="SumCtrl.firstNumber">
             </div>
             <div class="form-group col-md-6">
                 <label for="secondNumberSum" class="label label-default col-md-12">b</label>
-                <input id="secondNumberSum" type="number" class="form-control" ng-model="secondNumberSum">
+                <input id="secondNumberSum" type="number" class="form-control" ng-model="SumCtrl.secondNumber">
             </div>
             <div class="form-group ">
-                <button class="btn btn-success form-control">
+                <button class="btn btn-success form-control" ng-click="sum = SumCtrl.add(SumCtrl.firstNumber, SumCtrl.secondNumber)">
                     Sum
                 </button>
-                <h3> <!--result--></h3>
+                <h3>{{sum}}</h3>
             </div>
 
         </div>
         <!-- add SubCtrl -->
-        <div class="col-md-6">
+        <div class="col-md-6" ng-controller="SubCtrl">
             <div class="form-group col-md-6">
                 <label for="firstNumberSub" class="label label-default col-md-12">a</label>
-                <input id="firstNumberSub" type="number" class="form-control" ng-model="firstNumberSub">
+                <input id="firstNumberSub" type="number" class="form-control" ng-model="SubCtrl.firstNumber">
             </div>
             <div class="form-group col-md-6">
                 <label for="secondNumberSub" class="label label-default col-md-12">b</label>
-                <input id="secondNumberSub" type="number" class="form-control" ng-model="secondNumberSub">
+                <input id="secondNumberSub" type="number" class="form-control" ng-model="SubCtrl.secondNumber">
             </div>
-            <button class="btn btn-danger form-control">
+            <button class="btn btn-danger form-control" ng-click="sub = SubCtrl.subtraction(SubCtrl.firstNumber, SubCtrl.secondNumber)">
                 Substraction
             </button>
-            <h3><!--result--></h3>
+            <h3>{{sub}}</h3>
         </div>
 
     </div>
