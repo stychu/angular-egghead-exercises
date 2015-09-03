@@ -1,8 +1,8 @@
 <div class="col-md-offset-4 col-md-4 text-center">
     <div class="form-group">
-        <button id="successButton" class="btn btn-success" ng-click="get()"> Get success value</button>
-        <p ng-if="success">
-            Your success value is: <span class="text-success">{{success}}</span>
+        <button id="successButton" class="btn btn-success" ng-click="appCtrl.get()"> Get success value</button>
+        <p ng-if="appCtrl.success">
+            Your success value is: <span class="text-success">{{appCtrl.success}}</span>
         </p>
     </div>
     <resolve-success-promise></resolve-success-promise>

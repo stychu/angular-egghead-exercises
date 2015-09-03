@@ -1,11 +1,11 @@
 <div class="col-md-offset-4 col-md-4">
     <div class="form-group">
         <label for="success" class="label label-success">Write your value to success:</label>
-        <input type="text" class="form-control" id="success" ng-model="value.success" placeholder="Success value">
+        <input type="text" class="form-control" id="success" ng-model="setCtrl.value.success" placeholder="Success value">
     </div>
     <div class="form-group">
         <label for="unSuccess" class="label label-danger">Write your value to un success:</label>
-        <input type="text" class="form-control" id="unSuccess" ng-model="value.unSuccess" placeholder="Un success value">
+        <input type="text" class="form-control" id="unSuccess" ng-model="setCtrl.value.unSuccess" placeholder="Un success value">
     </div>
-    <a id="display" class="btn btn-default " ng-click="set(value)"><i class="glyphicon glyphicon-arrow-right"></i> Display value to next page</a>
+    <a id="display" class="btn btn-default " ng-click="setCtrl.set(setCtrl.value)"><i class="glyphicon glyphicon-arrow-right"></i> Display value to next page</a>
 </div>

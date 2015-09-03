@@ -35,9 +35,10 @@ app.config(function ($routeProvider, $provide)
     });
 });
 
-app.controller('SetCtrl', function ($scope, promises, $location)
+app.controller('SetCtrl', function (promises, $location)
 {
-    $scope.set = function (value)
+    var ctrl = this;
+    ctrl.set = function (value)
     {
         if (value && value.success && value.unSuccess) {
             promises.set(value.success, value.unSuccess);
@@ -47,24 +48,26 @@ app.controller('SetCtrl', function ($scope, promises, $location)
 });
 
 
-app.controller('AppCtrl', function ($scope, promises)
+app.controller('AppCtrl', function (promises)
 {
-    $scope.get = function ()
+    var ctrl = this;
+    ctrl.get = function ()
     {
         promises.getSuccess().then(function (result)
         {
-            $scope.success = result;
+            ctrl.success = result;
         });
     };
 });
 
-app.controller('UnSuccessCtrl', function ($scope, promises)
+app.controller('UnSuccessCtrl', function (promises)
 {
-    $scope.getUnSuccess = function ()
+    var ctrl = this;
+    ctrl.getUnSuccess = function ()
     {
         promises.getUnSuccess().catch(function (result)
         {
-            $scope.unSuccess = result;
+            ctrl.unSuccess = result;
         });
     };
 });
@@ -75,6 +78,6 @@ app.directive('resolveSuccessPromise', function ()
         scope: {},
         restrict: 'E',
         controller: 'UnSuccessCtrl as unSuccessCtrl',
-        template: '<div class="form-group">\n    <button id="unSuccessButton" class="btn btn-danger" ng-click="getUnSuccess()"> Get un success value from directive</button>\n    <span ng-if="unSuccess">\n        <p class="form-group">\n            Your un success value is: <span class="text-danger">{{unSuccess}}</span>\n        </p>\n    </span>\n</div>'
+        template: '<div class="form-group">\n    <button id="unSuccessButton" class="btn btn-danger" ng-click="unSuccessCtrl.getUnSuccess()"> Get un success value from directive</button>\n    <span ng-if="unSuccessCtrl.unSuccess">\n        <p class="form-group">\n            Your un success value is: <span class="text-danger">{{unSuccessCtrl.unSuccess}}</span>\n        </p>\n    </span>\n</div>'
     };
 });
