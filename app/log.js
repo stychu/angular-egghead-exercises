@@ -12,7 +12,7 @@ app.config(function ($routeProvider)
     });
     $routeProvider.otherwise('/');
 });
-app.controller('displayLog', function ($scope, $location, $log, $rootScope)
+app.controller('displayLog', function ($scope, $location, $log)
 {
     $scope.list = ['Do nothing', 'Do nothing', 'Show log', 'Do nothing', 'Do nothing', 'Do nothing', 'Show log', 'Do nothing', 'Do nothing'];
     $scope.addClass = function (value)
@@ -31,7 +31,7 @@ app.controller('displayLog', function ($scope, $location, $log, $rootScope)
 
         if ($scope.eventId == 3 || $scope.eventId == 7) {
             $location.path('/check');
-            $rootScope.$log = $log;
+            $log.debug(event);
         }
 
     };
