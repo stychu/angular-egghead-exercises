@@ -1,7 +1,7 @@
 <div class="text-center">
     <div class="col-md-offset-4 col-md-4">
-        <div id="button" ng-repeat="item in list">
-            <button class="btn-block" id="<!--set id-->" ng-class=""> Number . message <!--replace this message--></button>
+        <div id="button" ng-repeat="item in list track by $index">
+            <button class="btn-block" id="{{$index +1}}" ng-class="addClass($index+1)" ng-click="display($event); $log.debug($event)">{{$index + 1}} {{item}}</button>
         </div>
     </div>
     <div class="col-md-3">
