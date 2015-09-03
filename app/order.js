@@ -2,7 +2,7 @@
 
 var app = angular.module('app', []);
 
-app.factory('Order', function ($q)
+app.factory('Order', function ()
 {
     var names = [];
     var quantities = [];
@@ -15,16 +15,26 @@ app.factory('Order', function ($q)
 
         getItem: function (index)
         {
-
+            for (var i = 0; i < names.length; i++) {
+                if (i == index){
+                    return names[i];
+                }
+            }
         },
 
         getQuantity: function (index)
         {
+            for (var i = 0; i < quantities.length; i++) {
+                if (i == index){
+                    index +=1;
+                    return quantities[i];
+                }
+            }
 
         }
     };
 });
-app.controller('orderCtrl', function ($scope, $timeout, Order)
+app.controller('orderCtrl', function ($scope, $timeout, Order, $q)
 {
     var index = 0;
     $scope.name = 'Pasta';
@@ -49,6 +59,19 @@ app.controller('orderCtrl', function ($scope, $timeout, Order)
 
     $scope.success = function ()
     {
+        var defer = $q.defer();
+
+        defer.promise
+            .then(function (index) {
+                $scope.orders.name.push(Order.getItem(index));
+                return index;
+            })
+            .then(function (index) {
+                $scope.orders.quantity.push(Order.getQuantity(index))
+            });
+
+        defer.resolve(index);
+        index += 1;
 
     };
 });
