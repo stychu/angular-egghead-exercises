@@ -48,41 +48,39 @@ app.provider('partsList', function ()
     };
 });
 
-app.controller('CarCtrl', function ($timeout, partsList)
+app.controller('CarCtrl', function ($injector, $timeout)
 {
     var ctrl = this;
-    ctrl.lists = partsList.lists;
-    ctrl.result = false;
+    $injector.invoke(function (partsList)
+    {
+        ctrl.lists = partsList.lists;
+        ctrl.result = false;
 
-    ctrl.chooseCarPart = function ()
-    {
-        if (ctrl.data.part !== undefined) {
-            ctrl.carPart = ctrl.data.part;
-            ctrl.returnMessage = '';
-            ctrl.show = true;
-        }
-    };
+        ctrl.chooseCarPart = function () {
+            if (ctrl.data.part !== undefined) {
+                ctrl.carPart = ctrl.data.part;
+                ctrl.returnMessage = '';
+                ctrl.show = true;
+            }
+        };
 
-    ctrl.checkNow = function ()
-    {
-        $timeout(function ()
-        {
-            if (partsList.set(ctrl.carPart)) {
-                ctrl.returnMessage = 'This part is available and is very cheap';
-            } else {
-                ctrl.returnMessage = 'This part is NOT available and is very expensive...';
-            }
-            ctrl.result = true;
-        }, 10);
-    };
-    ctrl.wait = function ()
-    {
-        $timeout(function ()
-        {
-            if (partsList.setToTrue(ctrl.carPart)) {
-                ctrl.returnMessage = 'This part is available and is very cheap';
-            }
-            ctrl.result = true;
-        }, 1800);
-    };
+        ctrl.checkNow = function () {
+            $timeout(function () {
+                if (partsList.set(ctrl.carPart)) {
+                    ctrl.returnMessage = 'This part is available and is very cheap';
+                } else {
+                    ctrl.returnMessage = 'This part is NOT available and is very expensive...';
+                }
+                ctrl.result = true;
+            }, 10);
+        };
+        ctrl.wait = function () {
+            $timeout(function () {
+                if (partsList.setToTrue(ctrl.carPart)) {
+                    ctrl.returnMessage = 'This part is available and is very cheap';
+                }
+                ctrl.result = true;
+            }, 1800);
+        };
+    });
 });
