@@ -14,8 +14,8 @@
     </div>
     <div>
         <div class="panel-body text-center">
-            <button class="btn btn-default" ng-click="fifa.showPolandRank()">Where is Poland?</button>
-            <code ng-if="fifa.PolandRank"><!--event type--></code>
+            <button class="btn btn-default" ng-click="fifa.showPolandRank(); $log.info($event); ev = $event">Where is Poland?</button>
+            <code ng-if="fifa.PolandRank">{{ev.type}}</code>
         </div>
     </div>
     <div class="table-responsive">
@@ -29,7 +29,7 @@
             </thead>
             <tbody>
             <tr ng-repeat="rank in fifa.ranking">
-                <td class="col-md-3"></td>
+                <td class="col-md-3">{{$index + 1}}</td>
                 <td class="col-md-3">{{rank.team}}</td>
                 <td class="col-md-3">{{rank.points}}</td>
             </tr>

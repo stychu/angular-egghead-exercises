@@ -3,6 +3,9 @@
 var fifaApp = angular.module('fifaApp', []);
 
 //log
+fifaApp.run(function ($rootScope, $log) {
+    $rootScope.$log = $log;
+});
 
 fifaApp.controller('FifaCtrl', function ()
 {
