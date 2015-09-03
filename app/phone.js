@@ -4,9 +4,11 @@
 
     var phoneApp = angular.module('phoneApp', []);
 
-    phoneApp.controller('PhoneCtrl', function ($scope)
+    phoneApp.controller('PhoneCtrl', function ()
     {
-        $scope.phoneBook = [{
+        var ctrl = this;
+
+        ctrl.phoneBook = [{
             name: 'Warner Bridges', number: '+1 (914) 451-3055'
         }, {
             name: 'Bauer Spencer', number: '+1 (942) 551-2179'
@@ -18,16 +20,16 @@
             name: 'Candace Gordon', number: '+1 (932) 408-2012'
         }];
 
-        $scope.selectedPerson = $scope.phoneBook[0];
+        ctrl.selectedPerson = ctrl.phoneBook[0];
 
-        $scope.isShow = false;
+        ctrl.isShow = false;
 
-        $scope.showPhone = function ()
+        ctrl.showPhone = function ()
         {
-            $scope.isShow = !$scope.isShow;
+            ctrl.isShow = !ctrl.isShow;
         };
 
-        $scope.call = function ()
+        ctrl.call = function ()
         {
             alert('ring ding ding ding...');
         };
