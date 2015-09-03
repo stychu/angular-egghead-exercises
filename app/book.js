@@ -40,6 +40,7 @@ bookApp.directive('book', function ()
 {
     return {
         restrict: 'E',
+        transclude: true,
         scope: {
             publisher: '@'
         },
@@ -47,7 +48,7 @@ bookApp.directive('book', function ()
         '<div class="panel panel-default" > ' +
         '<div class="panel-body">' +
         '<div>' +
-        // insert content of the book here
+        '<div ng-transclude></div>' +
         '</div>' +
         '</div>' +
         '<div class="panel-footer text-left"><strong>Publisher: {{publisher}}</strong></div></div></div>'
