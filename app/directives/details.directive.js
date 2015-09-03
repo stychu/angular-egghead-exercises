@@ -5,6 +5,7 @@
             //complete detail directive
             restrict: 'E',
             scope: {},
+            require: ['^country', '^state'],
             replace: true,
             controller: 'detailsCtrl as detailsCtrl',
             templateUrl: 'templates/detail.tpl.html',

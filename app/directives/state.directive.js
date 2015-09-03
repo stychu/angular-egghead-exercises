@@ -4,7 +4,9 @@
         return {
             //complete state directive
             restrict: 'E',
+            transclude: true,
             scope: {},
+            require: '^country',
             replace: true,
             controller: 'stateCtrl as stateCtrl',
             templateUrl: 'templates/state.tpl.html',
