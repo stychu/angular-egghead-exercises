@@ -71,16 +71,20 @@ app.directive('audi', function ()
 {
     return {
         restrict: 'E',
+        require: ['^vehicle', '^car'],
         link: function (scope, element, attrs, ctrls)
         {
             scope.speed = 80;
             scope.setSpeed = function (speed)
             {
             // scope.driveSpeed
+                scope.driveSpeed = ctrls[0].drive(speed, 'car')
             };
             scope.isClicked = function ()
             {
-
+                if (ctrls[1].emergencyBrake) {
+                    ctrls[0].alarm();
+                }else {alert('Click!')}
 
             };
         },
@@ -95,6 +99,7 @@ app.directive('jelcz', function ()
 {
     return {
         restrict: 'E',
+        require: ['^vehicle', '^bus'],
         controller: function ()
         {
         },
@@ -104,11 +109,15 @@ app.directive('jelcz', function ()
             scope.setSpeed = function (speed)
             {
                 // scope.driveSpeed
+                scope.driveSpeed = ctrls[0].drive(speed, 'bus');
 
             };
 
             scope.isClicked = function ()
             {
+                if (ctrls[1].emergencyBrake) {
+                    ctrls[0].alarm();
+                }
             };
         },
         template: '<div class="col-md-4"><input id="driveBus" class="form-control" type="number" ng-model="speed"></div>' +
