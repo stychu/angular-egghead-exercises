@@ -13,9 +13,13 @@
         </h1>
     </div>
     <div class="col-md-offset-4 col-md-4 panel panel-body panel-info text-center">
-        <!--add  name of a friends and the contents of their fridge-->
-        <div><p class="page-header"><strong><!--id. name--></strong></div>
-        <div><!--nameOfFood x count--></div>
+        <p class="page-header" ng-repeat-start="friend in ctrl.list">
+            <strong>{{friend.id}}. {{friend.name}}</strong>
+        </p>
+        <p ng-repeat="food in friend.fridge">
+            {{food.name}} x {{food.count}}
+        </p>
+        <p ng-repeat-end=""></p>
     </div>
 </div>
 <script src="bower_components/angular/angular.js"></script>

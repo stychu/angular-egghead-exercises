@@ -9,7 +9,7 @@ Feature: ng-repeat-start
   Scenario: ng-repeat-start
     When I browse to the "/"
     Then I should see "1. Austin" for "1" in "people"
-    Then I should see "2. Ben" for "1" in "people"
+    Then I should see "2. Ben" for "2" in "people"
     Then I should see "3. Willy" for "3" in "people"
     Then I should see "4. Maxine" for "4" in "people"
 
