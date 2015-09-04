@@ -9,7 +9,7 @@
 <div class="container">
 
     <!--Bus Timetable-->
-    <div class="col-md-6">
+    <div class="col-md-6" ng-controller="BusCtrl as busctrl">
         <div class="page-header">
             <h4>Bus Timetable </h4>
         </div>
@@ -24,24 +24,24 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="bus in busTimetable">
+            <tr ng-repeat="bus in busctrl.busTimetable">
                 <td>{{bus.start}}</td>
                 <td>{{bus.via}}</td>
                 <td>{{bus.stop}}</td>
                 <td>{{bus.departure}}</td>
                 <td>
-                    <div id="viaButton" class="btn btn-default btn-sm" ng-click="bus.via = viaStop">Change Via Stop</div>
+                    <div id="viaButton" class="btn btn-default btn-sm" ng-click="bus.via = busctrl.viaStop">Change Via Stop</div>
                 </td>
             </tr>
             </tbody>
         </table>
         <label for='via' class="label label-default"> Via Stop </label>
-        <input id='via' class="form-control" type="text" ng-model="viaStop">
+        <input id='via' class="form-control" type="text" ng-model="busctrl.viaStop">
 
     </div>
 
     <!--Train Timetable-->
-    <div class="col-md-6">
+    <div class="col-md-6" ng-controller="TrainCtrl as trainctrl">
         <div class="page-header">
             <h4>Train Timetable </h4>
         </div>
@@ -56,19 +56,19 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="train in Train.trainTimetable">
+            <tr ng-repeat="train in trainctrl.trainTimetable">
                 <td>{{train.start}}</td>
                 <td>{{train.stop}}</td>
                 <td>{{train.departure}}</td>
                 <td> {{train.delay || 0}}</td>
                 <td>
-                    <div id="delayButton" class="btn btn-default btn-sm" ng-click="Train.addDelay(train)"> Add Delay</div>
+                    <div id="delayButton" class="btn btn-default btn-sm" ng-click="trainctrl.addDelay(train)"> Add Delay</div>
                 </td>
             </tr>
             </tbody>
         </table>
         <label for='delay' class="label label-default"> Delay </label>
-        <input id='delay' class="form-control" type="text" ng-model="Train.delay">
+        <input id='delay' class="form-control" type="text" ng-model="trainctrl.delay">
     </div>
 
     <!--Flight Schedule-->
@@ -86,12 +86,12 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="flight in flightSchedule" ng-class="isCancel[$index]">
+            <tr ng-repeat="flight in flightCtrl.flightSchedule" ng-class="flightCtrl.isCancel[$index]">
                 <td>{{flight.airline}}</td>
                 <td>{{flight.destination}}</td>
                 <td>{{flight.scheduled}}</td>
                 <td>
-                    <div id="cancelButton" class="btn btn-default btn-sm" ng-click="toggleClass($index)"> Cancel</div>
+                    <div id="cancelButton" class="btn btn-default btn-sm" ng-click="flightCtrl.toggleClass($index)"> Cancel</div>
                 </td>
             </tr>
             </tbody>

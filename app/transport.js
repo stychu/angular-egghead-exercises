@@ -17,6 +17,7 @@
         this.delay = 2;
         this.addDelay = function (train)
         {
+
             train.delay = this.delay;
         };
 
@@ -40,37 +41,50 @@
 
     });
 
-    app.controller('FlightCtrl', function ($scope, Flight)
+    app.service('Bus', function ()
     {
-        Flight.getFlight().then(function (result)
-        {
-            $scope.flightSchedule = result;
-        });
-
-        $scope.isCancel = [];
-
-        $scope.toggleClass = function (id)
-        {
-            if ($scope.isCancel[id] === 'danger') {
-                $scope.isCancel[id] = '';
-            } else {
-                $scope.isCancel[id] = 'danger';
-            }
-        };
-
-    });
-
-    app.run(function ($rootScope, Train)
-    {
-        $rootScope.busTimetable = [{
+        this.busTimetable = [{
             start: 'Tarnów', via: 'Tarnów Mościce', stop: 'Kraków', departure: '8:00'
         }, {
             start: 'Tarnów', via: 'Wojnicz', stop: 'Kraków', departure: '8:10'
         }, {
             start: 'Tarnów', via: 'Tarnów Mościce', stop: 'Kraków', departure: '8:15'
         }];
-        $rootScope.viaStop = 'Wojnicz';
-        $rootScope.Train = Train;
+
+        this.viaStop = 'Wojnicz';
     });
+
+    app.controller('FlightCtrl', function (Flight)
+    {
+        var ctrl = this;
+        Flight.getFlight().then(function (result)
+        {
+            ctrl.flightSchedule = result;
+        });
+
+        this.isCancel = [];
+
+        this.toggleClass = function (id)
+        {
+            if (this.isCancel[id] === 'danger') {
+                this.isCancel[id] = '';
+            } else {
+                this.isCancel[id] = 'danger';
+            }
+        };
+
+    });
+
+    app.controller('BusCtrl', function (Bus) {
+       this.busTimetable = Bus.busTimetable;
+        this.viaStop = Bus.viaStop;
+    });
+
+    app.controller('TrainCtrl', function (Train) {
+        this.trainTimetable = Train.trainTimetable;
+        this.delay = Train.delay;
+        this.addDelay = Train.addDelay;
+
+    })
 
 })();
